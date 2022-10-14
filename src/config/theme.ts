@@ -3,6 +3,9 @@ const theme = {
     pageBackground: "whitesmoke",
     grey: "grey",
     white: "white",
+    text: "#272a2b",
+    warn: "red",
+    cool: "blue",
   },
 };
 

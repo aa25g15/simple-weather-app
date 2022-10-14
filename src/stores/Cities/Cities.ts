@@ -11,10 +11,21 @@ export interface City {
 
 export class Cities {
   cities: Array<City> = citiesImported;
+  selectedCity: City = citiesImported[0];
 
   constructor() {
     makeAutoObservable(this);
   }
+
+  setSelectedCity(selectedId: number): void {
+    const city = this.cities.find((x) => x.id === selectedId);
+
+    if (city) {
+      this.selectedCity = city;
+    }
+  }
+
+  // We can implement methods here to get cities data from an API
 }
 
 export const CitiesContext = createContext<Cities>({} as Cities);

@@ -1,4 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
+import weathericonsRegularWebfontEot from './assets/fonts/weathericons-regular-webfont.eot';
+import weathericonsRegularWebfontWoff from './assets/fonts/weathericons-regular-webfont.woff';
+import weathericonsRegularWebfontTtf from './assets/fonts/weathericons-regular-webfont.ttf';
+import weathericonsRegularWebfontSvg from './assets/fonts/weathericons-regular-webfont.svg';
 
 export default createGlobalStyle`
   * {
@@ -48,8 +52,11 @@ export default createGlobalStyle`
   */
   @font-face {
     font-family: 'weathericons';
-    src: url('./assets/fonts/weathericons-regular-webfont.eot');
-    src: url('./assets/fonts/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('./assets/fonts/weathericons-regular-webfont.woff') format('woff'), url('./assets/fonts/weathericons-regular-webfont.ttf') format('truetype'), url('./assets/fonts/weathericons-regular-webfont.svg#weathericons-regular-webfontRg') format('svg');
+    src: url('${weathericonsRegularWebfontEot}');
+    src: url('${weathericonsRegularWebfontEot}?#iefix') format('embedded-opentype'),
+	url('${weathericonsRegularWebfontWoff}') format('woff'),
+	url('${weathericonsRegularWebfontTtf}') format('truetype'),
+	url('${weathericonsRegularWebfontSvg}#weathericons-regular-webfontRg') format('svg');
     font-weight: normal;
     font-style: normal;
   }

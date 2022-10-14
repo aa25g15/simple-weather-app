@@ -7,7 +7,6 @@ export const StyledSelect = styled.select`
 `
 
 export const StyledSelectContainer = styled.div`
-  margin-left: auto;
   border-radius: 100vh;
   padding: 0 1rem;
   border: 1px solid ${({theme}) => theme.color.grey};
