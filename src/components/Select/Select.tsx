@@ -1,12 +1,15 @@
-import { ReactElement } from 'react';
+import { ReactElement, useContext } from 'react';
+import { observer } from 'mobx-react-lite';
 import { StyledSelect, StyledSelectContainer } from './Select.styles';
-import cities from '../../data/cities-fr.json';
+import { CitiesContext } from '../../stores/Cities/Cities';
 
-function Select(): ReactElement {
+const Select = observer((): ReactElement => {
+  const citiesContext = useContext(CitiesContext);
+
   return (
     <StyledSelectContainer>
       <StyledSelect>
-        {cities.map((city) => (
+        {citiesContext.cities.map((city) => (
           <option key={city.id} value={city.id}>
             {city.nm}
           </option>
@@ -14,6 +17,6 @@ function Select(): ReactElement {
       </StyledSelect>
     </StyledSelectContainer>
   );
-}
+});
 
 export default Select;
