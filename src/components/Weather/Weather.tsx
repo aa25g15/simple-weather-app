@@ -35,9 +35,9 @@ const Weather = observer((): ReactElement => {
             </div>
             <div className='current-weather-data'>
                 <div className='current-temperature-container'>
-                    <div className='current-temperature'>{weatherContext.currentWeatherData?.main.temp}</div>
-                    <div className='current-temperature-high'>{weatherContext.currentWeatherData?.main.temp_max}</div>
-                    <div className='current-temperature-low'>{weatherContext.currentWeatherData?.main.temp_min}</div>
+                    <div className='current-temperature'>{weatherContext.currentWeatherData?.main.temp.toFixed(0)}</div>
+                    <div className='current-temperature-high'>{weatherContext.currentWeatherData?.main.temp_max.toFixed(0)}</div>
+                    <div className='current-temperature-low'>{weatherContext.currentWeatherData?.main.temp_min.toFixed(0)}</div>
                 </div>
                 <div className='current-additional-info'>
                     <div className='current-description'>{weatherContext.currentWeatherData?.weather[0].description}</div>
@@ -60,9 +60,9 @@ const Weather = observer((): ReactElement => {
                     ></div>
                 </div>
                 <div className='forecast-temperature-container'>
-                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[0].main.temp}</div>
-                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[0].main.temp_max}</div>
-                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[0].main.temp_min}</div>
+                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[0].main.temp.toFixed(0)}</div>
+                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[0].main.temp_max.toFixed(0)}</div>
+                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[0].main.temp_min.toFixed(0)}</div>
                 </div>
             </div>
             <div className='day-container'>
@@ -75,9 +75,9 @@ const Weather = observer((): ReactElement => {
                     ></div>
                 </div>
                 <div className='forecast-temperature-container'>
-                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[1].main.temp}</div>
-                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[1].main.temp_max}</div>
-                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[1].main.temp_min}</div>
+                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[1].main.temp.toFixed(0)}</div>
+                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[1].main.temp_max.toFixed(0)}</div>
+                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[1].main.temp_min.toFixed(0)}</div>
                 </div>
             </div>
             <div className='day-container'>
@@ -90,9 +90,9 @@ const Weather = observer((): ReactElement => {
                     ></div>
                 </div>
                 <div className='forecast-temperature-container'>
-                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[2].main.temp}</div>
-                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[2].main.temp_max}</div>
-                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[2].main.temp_min}</div>
+                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[2].main.temp.toFixed(0)}</div>
+                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[2].main.temp_max.toFixed(0)}</div>
+                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[2].main.temp_min.toFixed(0)}</div>
                 </div>
             </div>
         </div>

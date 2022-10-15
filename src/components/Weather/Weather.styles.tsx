@@ -4,9 +4,13 @@ import { respondTo } from '../../helpers/responsive/responsive';
 export const StyledWeatherInfoContainer = styled.div`
     width: 100%;
     height: 100%;
-    padding: 2rem;
+    padding: 2rem 1rem;
     display: flex;
     flex-direction: column;
+
+    ${respondTo.MEDIUM} {
+        padding: 2rem;
+    }
 
     .current-weather{
         display: flex;
@@ -41,6 +45,7 @@ export const StyledWeatherInfoContainer = styled.div`
                 font-size: 3rem;
                 color: ${({theme}) => theme.color.text};
                 grid-area: c;
+                margin-right: 0.3rem;
 
                 ${respondTo.LARGE} {
                     font-size: 6rem;
@@ -74,6 +79,7 @@ export const StyledWeatherInfoContainer = styled.div`
                 justify-content: center;
                 text-transform: uppercase;
                 margin: 0 1rem;
+                text-align: right;
             }
 
             .weather-icon {
@@ -103,8 +109,12 @@ export const StyledWeatherInfoContainer = styled.div`
             }
         
             .day-name{
-                font-size: 2rem;
+                font-size: 1.2rem;
                 color: ${({theme}) => theme.color.text};
+
+                ${respondTo.MEDIUM} {
+                    font-size: 2rem;
+                }
             }
 
             .weather-icon{
@@ -115,26 +125,46 @@ export const StyledWeatherInfoContainer = styled.div`
             .forecast-temperature-container{
                 display: grid;
                 grid-template-areas:
-                "a c"
-                ". c"
-                "b c";
+                ". c ."
+                "a . b";
+
+                ${respondTo.MEDIUM} {
+                    grid-template-areas:
+                    "a c"
+                    ". c"
+                    "b c";
+                }
 
                 .forecast-temperature {
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                     color: ${({theme}) => theme.color.text};
                     grid-area: c;
+                    margin-left: 0;
+
+                    ${respondTo.MEDIUM} {
+                        font-size: 2rem;
+                        margin-left: 0.3rem;
+                    }
                 }
 
                 .forecast-temperature-high {
                     font-size: 0.8rem;
                     color: ${({theme}) => theme.color.warn};
                     grid-area: a;
+
+                    ${respondTo.MEDIUM} {
+                        font-size: 1rem;
+                    }
                 }
 
                 .forecast-temperature-low {
                     font-size: 0.8rem;
                     color: ${({theme}) => theme.color.cool};
                     grid-area: b;
+
+                    ${respondTo.MEDIUM} {
+                        font-size: 1rem;
+                    }
                 }
             }
         }

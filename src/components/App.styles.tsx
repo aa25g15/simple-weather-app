@@ -25,15 +25,8 @@ export const StyledAppContainer = styled.div`
 `
 
 export const WeatherCardContainer = styled.div`
-  height: 60%;
   width: 100%;
   padding: 1rem;
-
-  ${respondTo.MEDIUM} {
-    height: 45%;
-    width: 100%;
-    padding: 1rem;
-  }
 
   ${respondTo.LARGE} {
     height: 100%;
