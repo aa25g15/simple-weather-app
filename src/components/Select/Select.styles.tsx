@@ -4,6 +4,7 @@ export const StyledSelect = styled.select`
   height: 2rem;
   border: none;
   outline: none;
+  background-color: ${({theme}) => theme.color.white};
 `
 
 export const StyledSelectContainer = styled.div`

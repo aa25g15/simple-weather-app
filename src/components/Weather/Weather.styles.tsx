@@ -109,7 +109,7 @@ export const StyledWeatherInfoContainer = styled.div`
             }
         
             .day-name{
-                font-size: 1.2rem;
+                font-size: 1rem;
                 color: ${({theme}) => theme.color.text};
 
                 ${respondTo.MEDIUM} {
