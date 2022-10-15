@@ -10,6 +10,7 @@ export const StyledLoaderContainer = styled.div`
     .preloader {
 	height: 110px;
 	width: 110px;
+    margin: 8rem 0;
     position: relative;
     }
 

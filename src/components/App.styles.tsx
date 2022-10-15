@@ -25,6 +25,7 @@ export const StyledAppContainer = styled.div`
 `
 
 export const WeatherCardContainer = styled.div`
+  height: max-content;
   width: 100%;
   padding: 1rem;
 

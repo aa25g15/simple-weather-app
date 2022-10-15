@@ -12,16 +12,18 @@ export class Weather {
     .REACT_APP_OPEN_WEATHER_ENDPOINT_FORECAST as string;
   currentWeatherData: CurrentWeather | null = null;
   forecastWeatherData: ForecastWeather | null = null;
-  gettingData: boolean = false;
+  gettingData: boolean = true;
+  init: boolean = true;
 
   constructor() {
     makeAutoObservable(this);
   }
 
   async getAllWeatherData(city: City) {
-    if (this.gettingData) return;
+    if (this.gettingData && !this.init) return;
 
     this.gettingData = true;
+    this.init = false;
     await Promise.all([
       this.getCurrentCityWeather(city),
       this.getCurrentCityForecast(city),
