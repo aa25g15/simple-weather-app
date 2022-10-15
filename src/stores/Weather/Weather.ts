@@ -14,6 +14,7 @@ export class Weather {
   forecastWeatherData: ForecastWeather | null = null;
   gettingData: boolean = true;
   init: boolean = true;
+  error: string | null = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -24,12 +25,21 @@ export class Weather {
 
     this.gettingData = true;
     this.init = false;
+    this.error = null;
+
     await Promise.all([
       this.getCurrentCityWeather(city),
       this.getCurrentCityForecast(city),
-    ]).then(() => {
-      this.gettingData = false;
-    });
+    ])
+      .then(() => {
+        this.gettingData = false;
+      })
+      .catch(() => {
+        this.gettingData = false;
+        this.currentWeatherData = null;
+        this.forecastWeatherData = null;
+        this.error = "Something went wrong...";
+      });
   }
 
   async getCurrentCityWeather(city: City) {
@@ -44,10 +54,6 @@ export class Weather {
       })
       .then((res) => {
         this.currentWeatherData = res.data;
-      })
-      .catch(() => {
-        this.currentWeatherData = null;
-        console.error("Something went wrong");
       });
   }
 
@@ -63,10 +69,6 @@ export class Weather {
       })
       .then((res) => {
         this.forecastWeatherData = res.data;
-      })
-      .catch(() => {
-        this.forecastWeatherData = null;
-        console.error("Something went wrong");
       });
   }
 }

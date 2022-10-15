@@ -2,7 +2,7 @@ import { ReactElement, useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { WeatherContext } from '../../stores/Weather/Weather';
 import { CitiesContext } from '../../stores/Cities/Cities';
-import { StyledWeatherInfoContainer } from './Weather.styles';
+import { StyledErrorContainer, StyledWeatherInfoContainer } from './Weather.styles';
 import AnimatedLoader from '../AnimatedLoader/AnimatedLoader';
 
 const Weather = observer((): ReactElement => {
@@ -22,6 +22,12 @@ const Weather = observer((): ReactElement => {
   useEffect(() => {
     weatherContext.getAllWeatherData(cityContext.selectedCity);
   }, [cityContext.selectedCity, weatherContext]);
+
+  if(weatherContext.error) {
+    return (
+        <StyledErrorContainer>{weatherContext.error}</StyledErrorContainer>
+    )
+  }
 
   if(weatherContext.gettingData) {
     return (
