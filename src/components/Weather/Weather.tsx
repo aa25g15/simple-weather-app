@@ -1,4 +1,4 @@
-import { Fragment, ReactElement, useContext, useEffect } from 'react';
+import { ReactElement, useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { WeatherContext } from '../../stores/Weather/Weather';
 import { CitiesContext } from '../../stores/Cities/Cities';
