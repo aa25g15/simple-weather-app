@@ -16,6 +16,8 @@ const Weather = observer((): ReactElement => {
   tomorrow.setDate(today.getDate() + 1);
   const dayAfter = new Date(today)
   dayAfter.setDate(today.getDate() + 2);
+  const twoDaysAfter = new Date(today)
+  twoDaysAfter.setDate(today.getDate() + 3);
 
   useEffect(() => {
     weatherContext.getAllWeatherData(cityContext.selectedCity);
@@ -52,21 +54,6 @@ const Weather = observer((): ReactElement => {
         <div className='forecast-data'>
             <div className='day-container'>
                 <div className='day-name'>
-                    {days[today.getDay()]}
-                </div>
-                <div className='wi'>
-                    <div
-                    className={`weather-icon wi wi-icon-${weatherContext.forecastWeatherData?.list[0].weather[0].id}`}
-                    ></div>
-                </div>
-                <div className='forecast-temperature-container'>
-                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[0].main.temp.toFixed(0)}</div>
-                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[0].main.temp_max.toFixed(0)}</div>
-                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[0].main.temp_min.toFixed(0)}</div>
-                </div>
-            </div>
-            <div className='day-container'>
-                <div className='day-name'>
                     {days[tomorrow.getDay()]}
                 </div>
                 <div className='wi'>
@@ -93,6 +80,21 @@ const Weather = observer((): ReactElement => {
                     <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[2].main.temp.toFixed(0)}</div>
                     <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[2].main.temp_max.toFixed(0)}</div>
                     <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[2].main.temp_min.toFixed(0)}</div>
+                </div>
+            </div>
+            <div className='day-container'>
+                <div className='day-name'>
+                    {days[twoDaysAfter.getDay()]}
+                </div>
+                <div className='wi'>
+                    <div
+                    className={`weather-icon wi wi-icon-${weatherContext.forecastWeatherData?.list[3].weather[0].id}`}
+                    ></div>
+                </div>
+                <div className='forecast-temperature-container'>
+                    <div className='forecast-temperature'>{weatherContext.forecastWeatherData?.list[3].main.temp.toFixed(0)}</div>
+                    <div className='forecast-temperature-high'>{weatherContext.forecastWeatherData?.list[3].main.temp_max.toFixed(0)}</div>
+                    <div className='forecast-temperature-low'>{weatherContext.forecastWeatherData?.list[3].main.temp_min.toFixed(0)}</div>
                 </div>
             </div>
         </div>
