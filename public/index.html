@@ -29,8 +29,25 @@
     <title>JellyFish | Simply Awesome Weather App</title>
 
     <style>
-      #preloader {
+      #preloader-container{
         position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 11;
+        background-color: black;
+        pointer-events: none;
+        overflow: hidden;
+      }
+
+      #preloader-container.loaded {
+        bottom: 100vh;
+        animation: reveal 1s ease-in;
+      }
+
+      #preloader {
+        position: absolute;
         top: 50vh;
         left: 50vw;
         width: 150px;
@@ -38,9 +55,13 @@
         margin: -75px 0 0 -75px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: #272a2b;
+        border-top-color: #fff;
         animation: spin 1.7s linear infinite;
-        z-index: 11;
+      }
+
+      #preloader.loaded{
+        opacity: 0;
+        animation: fade 0.5s ease-in;
       }
 
       #preloader:before {
@@ -65,7 +86,7 @@
         bottom: 15px;
         border-radius: 50%;
         border: 3px solid transparent;
-        border-top-color: #272a2b;
+        border-top-color: #fff;
         animation: spin 1s linear infinite;
       }
 
@@ -86,20 +107,42 @@
           transform: rotate(-360deg);
         }
       }
+
+      @keyframes reveal {
+        0% { 
+          bottom: 0;
+        }
+        100% {
+          bottom: 100vh;
+        }
+      }
+
+      @keyframes fade {
+        0% { 
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
     </style>
 
     <script>
       window.addEventListener('load', () => {
+        const preloaderContainer = document.getElementById('preloader-container');
         const preloader = document.getElementById('preloader');
-        if(preloader) {
-          preloader.style.display = 'none';
+        if(preloaderContainer && preloader) {
+          preloaderContainer.classList.add('loaded');
+          preloader.classList.add('loaded');
         }
       });
     </script>
   </head>
   <body>
     <!-- #region Preloader -->
-    <div id="preloader"></div>
+    <div id="preloader-container">
+      <div id="preloader"></div>
+    </div>
     <!-- #endregion Preloader -->
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
