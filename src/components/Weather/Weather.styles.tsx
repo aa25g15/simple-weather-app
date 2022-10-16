@@ -113,7 +113,7 @@ export const StyledWeatherInfoContainer = styled.div`
                 color: ${({theme}) => theme.color.text};
 
                 ${respondTo.MEDIUM} {
-                    font-size: 2rem;
+                    font-size: 1.5rem;
                 }
             }
 
