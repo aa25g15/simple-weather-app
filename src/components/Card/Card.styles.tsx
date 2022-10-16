@@ -8,6 +8,7 @@ import bgImageMist from '../../assets/images/pexels-pixabay-163323.jpeg';
 import bgImageShowers from '../../assets/images/pexels-genaro-servín-763398.jpeg';
 import bgImageWindy from '../../assets/images/pexels-gotta-be-worth-it-919306.jpeg';
 import bgImageThunder from '../../assets/images/pexels-andre-furtado-1162251.jpeg';
+import bgImageStars from '../../assets/images/pexels-arnie-chou-1229042.jpeg';
 import { WeatherCodes } from '../../data/weatherCodes';
 
 const sunny = css`
@@ -37,6 +38,9 @@ const windy = css`
 const thunder = css`
   background-image: url('${bgImageThunder}');
 `
+const stars = css`
+  background-image: url('${bgImageStars}');
+`
 const whiteSmoke = css`
   background-color: ${({theme}) => theme.color.pageBackground};
 `
@@ -47,7 +51,7 @@ const darkGray = css`
 export type WeatherType = keyof typeof WeatherCodes;
 
 export type StyledCardContainerProps = {
-  weather: WeatherType | null | 'solidWhiteSmoke' | 'SolidDarkGray';
+  weather: WeatherType | null | 'solidWhiteSmoke' | 'solidDarkGray';
 }
 
 export const StyledCardContainer = styled.div<StyledCardContainerProps>`
@@ -84,10 +88,12 @@ export const StyledCardContainer = styled.div<StyledCardContainerProps>`
         return windy;
       case 'thunder':
         return thunder;
-      case 'SolidDarkGray':
+      case 'solidDarkGray':
         return darkGray;
-      default:
+      case 'solidWhiteSmoke':
         return whiteSmoke;
+      default:
+        return stars;
     }
   }}
 `
